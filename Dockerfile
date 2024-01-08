@@ -7,7 +7,11 @@ run bun install
 copy data /app/data/
 run bun src/index.mjs > /index.html
 
-from nginx:alpine
+from alpine as compressor
 copy data /data/
-copy nginx.conf /etc/nginx/nginx.conf
 copy --from=ig /index.html /data/
+copy /index-generator/assets /data/assets/
+
+from nginx:alpine
+copy nginx.conf /etc/nginx/nginx.conf
+copy --from=compressor /data/ /data/
