@@ -1,0 +1,13 @@
+{
+  "name": "corpora-index-generator",
+  "version": "1.0.0",
+  "description": "Generates an index file during the container build process",
+  "main": "src/index.mjs",
+  "scripts": {
+    "run": "node src/index.mjs"
+  },
+  "dependencies": {
+    "change-case": "^5.4.0",
+    "fs": "^0.0.1-security"
+  }
+}
